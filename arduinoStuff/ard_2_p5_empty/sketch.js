@@ -6,7 +6,7 @@ Uses
 
 
 var serial; // variable to hold an instance of the serialport library
-var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
+var portName = '/dev/cu.usbmodem14131'; // fill in your serial port name here
 var sensors;
 
 var pot1 = 0;
@@ -41,7 +41,7 @@ function draw() {
     background(0);
   }
 
-  
+
 
 }
 
