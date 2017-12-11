@@ -9,6 +9,12 @@ var serial; // variable to hold an instance of the serialport library
 var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
 var sensors;
 
+var pot1 = 0;
+var pot2 = 0;
+var light = 0;
+var button = 0;
+
+
 
 function setup() {
 
@@ -28,6 +34,14 @@ function setup() {
 }
 
 function draw() {
+
+  if (button = 1) {
+    background(255);
+  } else if (button = 0) {
+    background(0);
+  }
+
+  
 
 }
 
@@ -58,6 +72,10 @@ function serialEvent() {
         for (let i = 0; i < sensors.length; i++){
           sensors[i] = Number(sensors[i]);
         }
+        pot1 = sensors[0];
+        pot2 = sensors[1];
+        light = sensors[3];
+        button = sensors[4];
         console.log(sensors);
     }
 

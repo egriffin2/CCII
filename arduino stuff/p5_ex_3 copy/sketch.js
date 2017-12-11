@@ -10,6 +10,8 @@ var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
 var inData; // for incoming serial data
 var pot1 = 0;
 var pot2 = 0;
+var light = 0;
+var button = 1;
 
 
 function setup() {
