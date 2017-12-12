@@ -1,6 +1,6 @@
 
 var serial; // variable to hold an instance of the serialport library
-var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
+var portName = '/dev/cu.usbmodem14131'; // fill in your serial port name here
 var sensors;
 var inData;
 
@@ -19,7 +19,7 @@ var diam = 10;
 function setup() {
 
     createCanvas(windowWidth, windowHeight);
-    background(255);
+    background(0);
 
     //drawing
     cart_coor = createVector(0,0);
@@ -39,14 +39,14 @@ function setup() {
 
 function draw() {
   //checking arduino controls
-  fill(0);
+  fill(255);
   text(pot1, 30, 30);
   text(pot2, 30, 50);
   text(light, 30, 70);
   text(button, 30, 90);
 
   //actual Drawing
-/*  cart_coor.x = obj_pos.r * cos(obj_pos.theta);
+  cart_coor.x = obj_pos.r * cos(obj_pos.theta);
   cart_coor.y = obj_pos.r * sin(obj_pos.theta);
 
   if (button > 0) {
@@ -73,16 +73,9 @@ function draw() {
   obj_pos.r += (diam*2)/256;
   obj_pos.theta += PI/128;
 
-  //end drawing/*/
-  graphData(inData);
+  //end drawing
 
 
-}
-
-function graphData(newData) {
-  var a = map(pot1, 0, 1023, 0, height);
-  var b = map(pot2, 0, 1023, 0, width);
-  ellipse(a, b, 30, 30);
 }
 
 
