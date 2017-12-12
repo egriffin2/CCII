@@ -10,9 +10,9 @@ var light = 0;
 var button = 0;
 
 //Drawing Variables
-var obj_pos = {r: pot1, theta: pot2};
+var obj_pos = {r: pot1, theta: pot1};
 var cart_coor;
-var diam = 10;
+var diam = light;
 
 
 
@@ -21,8 +21,12 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
 
+    pot1 = map(pot1, 0, 1023, 0, height);
+    pot2 = map(pot2, 0, 1023, 0, width);
+    light = map(light, 0, 1023, 5, 40);
+
     //drawing
-    cart_coor = createVector(0,0);
+    cart_coor = createVector(pot1, pot2);
 
     //arduino
     serial = new p5.SerialPort(); // make a new instance of the serialport library
@@ -63,7 +67,7 @@ function draw() {
 
   push();
   noStroke();
-  fill(light, random(120,230), random(255));
+  fill(pot1, random(120,230), random(255));
   translate(width/2, height/2);
   //line(0,0, cart_coor.x, cart_coor.y);
   ellipse(cart_coor.x, cart_coor.y, diam);
