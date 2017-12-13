@@ -85,7 +85,7 @@ function graphData(newData) {
 
   push();
   noStroke();
-  fill(p1, random(120,230), random(255));
+  fill(p2, random(120,230), random(255));
   translate(width/2, height/2);
   //line(0,0, cart_coor.x, cart_coor.y);
   ellipse(cart_coor.x, cart_coor.y, diam);
@@ -128,8 +128,8 @@ function serialEvent() {
         for (let i = 0; i < sensors.length; i++){
           sensors[i] = Number(sensors[i]);
         }
-        pot1 = sensors[0];
-        pot2 = sensors[1];
+        pot1 = sensors[1];
+        pot2 = sensors[2];
         light = sensors[3];
         button = sensors[0];
     }
