@@ -7,20 +7,26 @@ void setup() {
 }
  
 void loop() {
+  String myString;
   buttonState = digitalRead(buttonPin);
   int light = analogRead(A2);
   int potentiometer = analogRead(A0);
   int pot2 = analogRead(A1);  // read the input pin
   
-  Serial.print(potentiometer);                             // print it out the serial port
-  Serial.print(',');
-    Serial.print(light);                             // print it out the serial port
-  Serial.print(',');
+//    Serial.print(light);                             // print it out the serial port
+//  Serial.print(',');
 //    Serial.print(potentiometer);                             // print it out the serial port
 //  Serial.print(',');
-  Serial.print(pot2);
-  Serial.print(',');
-    Serial.print(buttonState);
-  Serial.println("");
+//  Serial.print(pot2);
+//  Serial.print(',');
+//    Serial.print(buttonState);
+//  Serial.println("");
+
+
+  String result = String(buttonState) + "," + String(potentiometer) + "," + String(pot2) + "," + String(light);
+  Serial.println(result);
+
+//myString = "" + buttonState + "," + potentiometer + "," + pot2 + "," + light;
+//Serial.println(myString);
   delay(1);                                            // slight delay to stabilize the ADC
 }

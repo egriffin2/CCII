@@ -6,7 +6,7 @@ Uses arduino2p5-STRING sketch
 
 
 var serial; // variable to hold an instance of the serialport library
-var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
+var portName = '/dev/cu.usbmodem14131'; // fill in your serial port name here
 var inData; // for incoming serial data
 var pot1 = 0;
 var pot2 = 0;

@@ -1,6 +1,6 @@
 
 var serial; // variable to hold an instance of the serialport library
-var portName = '/dev/cu.usbmodem14131'; // fill in your serial port name here
+var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
 var inData;
 var sensors;
 var inData;
@@ -40,28 +40,40 @@ function setup() {
 
 function draw() {
   //checking arduino controls
+  fill(30);
+  rect(0,0, 100, 120);
   fill(255);
-  text(pot1, 30, 30);
-  text(pot2, 30, 50);
-  text(light, 30, 70);
-  text(button, 30, 90);
-  text(diam, 30, 100);
+  if(pot1){
+    text(pot1, 30, 30);
+  }
+  if(pot2){
+    text(pot2, 30, 50);
+  }
+  if(light){
+    text(light, 30, 70);
+  }
+  if(button){
+    text(button, 30, 90);
+  }
+  // if(diam){
+  //   text(diam, 30, 100);
+  // }
 
   graphData(inData);
 }
 
 function graphData(newData) {
 
-  pot1 = map(pot1, 0, 1023, 0, height);
-  pot2 = map(pot2, 0, 1023, 0, width);
+  let p1 = map(pot1, 0, 1023, 0, height);
+  let p2 = map(pot2, 0, 1023, 0, width);
 
   //actual Drawing
   cart_coor.x = obj_pos.r * cos(obj_pos.theta);
   cart_coor.y = obj_pos.r * sin(obj_pos.theta);
 
-  if (pot1 > 511) {
+  if (p1 > 511) {
     cart_coor.x = obj_pos.r * sin(obj_pos.theta);
-  } else if (pot1 < 511) {
+  } else if (p1 < 511) {
     cart_coor.x = obj_pos.r * tan(obj_pos.theta)
   }
 
@@ -73,7 +85,7 @@ function graphData(newData) {
 
   push();
   noStroke();
-  fill(pot1, random(120,230), random(255));
+  fill(p1, random(120,230), random(255));
   translate(width/2, height/2);
   //line(0,0, cart_coor.x, cart_coor.y);
   ellipse(cart_coor.x, cart_coor.y, diam);
@@ -95,6 +107,7 @@ function printList(portList) {
     for (var i = 0; i < portList.length; i++) {
         // Display the list the console:
         console.log(i + " " + portList[i]);
+
     }
 }
 
@@ -118,8 +131,7 @@ function serialEvent() {
         pot1 = sensors[0];
         pot2 = sensors[1];
         light = sensors[3];
-        button = sensors[4];
-        console.log(sensors);
+        button = sensors[0];
     }
 
 }
