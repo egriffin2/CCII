@@ -97,7 +97,7 @@ function graphData(newData) {
   obj_pos.r += (diam*2)/256;
   obj_pos.theta += PI/128;
 
-  if (button > 0) {
+  if (button == 0) {
     background(0);
   }
 
