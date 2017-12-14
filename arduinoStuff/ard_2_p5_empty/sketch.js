@@ -66,6 +66,7 @@ function graphData(newData) {
 
   let p1 = map(pot1, 0, 1023, 0, height);
   let p2 = map(pot2, 0, 1023, 0, width);
+  let alpha = map(light, 0, 700, 0, 255);
 
   //actual Drawing
   cart_coor.x = obj_pos.r * cos(obj_pos.theta);
@@ -85,7 +86,8 @@ function graphData(newData) {
 
   push();
   noStroke();
-  fill(p2, random(120,230), random(255));
+
+  fill(p2, random(120,230), random(255), alpha);
   translate(width/2, height/2);
   //line(0,0, cart_coor.x, cart_coor.y);
   ellipse(cart_coor.x, cart_coor.y, diam);
@@ -94,6 +96,10 @@ function graphData(newData) {
 
   obj_pos.r += (diam*2)/256;
   obj_pos.theta += PI/128;
+
+  if (button > 0) {
+    background(0);
+  }
 
   //end drawing
 
