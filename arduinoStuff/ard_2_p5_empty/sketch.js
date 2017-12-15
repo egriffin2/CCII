@@ -55,6 +55,8 @@ function draw() {
   if(button){
     text(button, 30, 90);
   }
+
+  text("Point a light at the right side of the box to brighten circles.", width - 400, 30)
   // if(diam){
   //   text(diam, 30, 100);
   // }
@@ -66,7 +68,7 @@ function graphData(newData) {
 
   let p1 = map(pot1, 0, 1023, 0, height);
   let p2 = map(pot2, 0, 1023, 0, width);
-  let alpha = map(light, 0, 700, 0, 255);
+  let alpha = map(light, 0, 30, 0, 255);
 
   //actual Drawing
   cart_coor.x = obj_pos.r * cos(obj_pos.theta);
@@ -78,7 +80,7 @@ function graphData(newData) {
     cart_coor.x = obj_pos.r * tan(obj_pos.theta)
   }
 
-  if (cart_coor.y > 100) {
+  if (p1 > 100) {
     cart_coor.y = obj_pos.r * cos(obj_pos.theta);
   } else if (cart_coor.y < 0) {
     cart_coor.y = obj_pos.r * tan(obj_pos.theta)
