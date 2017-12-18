@@ -1,6 +1,6 @@
 
 var serial; // variable to hold an instance of the serialport library
-var portName = '/dev/cu.usbmodem14231'; // fill in your serial port name here
+var portName = '/dev/cu.usbmodem14131'; // fill in your serial port name here
 var inData;
 var sensors;
 var inData;
@@ -43,7 +43,7 @@ function draw() {
   fill(30);
   rect(0,0, 100, 120);
   fill(255);
-  if(pot1){
+/*  if(pot1){
     text(pot1, 30, 30);
   }
   if(pot2){
@@ -55,8 +55,8 @@ function draw() {
   if(button){
     text(button, 30, 90);
   }
-
-  text("Point a light at the right side of the box to brighten circles.", width - 400, 30)
+/*/
+//  text("Point a light at the right side of the box to brighten circles.", width - 400, 30)
   // if(diam){
   //   text(diam, 30, 100);
   // }
@@ -68,7 +68,7 @@ function graphData(newData) {
 
   let p1 = map(pot1, 0, 1023, 0, height);
   let p2 = map(pot2, 0, 1023, 0, width);
-  let alpha = map(light, 0, 30, 0, 255);
+  let alpha = map(light, 0, 1000, 0, 255);
 
   //actual Drawing
   cart_coor.x = obj_pos.r * cos(obj_pos.theta);
